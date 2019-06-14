@@ -12,7 +12,7 @@ Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
 pinMode(9,OUTPUT);
 pinMode(8,OUTPUT);
 pinMode(7,OUTPUT);
-pinMode(3,OUTPUT);
+pinMode(6,OUTPUT);
 pinMode(5,OUTPUT);
 pinMode(4,OUTPUT);
 pinMode(13,OUTPUT);
@@ -25,51 +25,49 @@ if(Serial.available()){
   t = Serial.read();
   Serial.println(t);
 }
-if(t=='f'){
-  digitalWrite(9,HIGH);
-  digitalWrite(8,HIGH);
-  digitalWrite(5,HIGH);
-  digitalWrite(3,HIGH);
-  digitalWrite(7,LOW);
-  digitalWrite(4,LOW);
+if(t=='F'){
+  digitalWrite(enA,HIGH);
+  digitalWrite(enB,HIGH);
+  digitalWrite(in1,HIGH);
+  digitalWrite(in3,HIGH);
+  digitalWrite(in2,LOW);
+  digitalWrite(in4,LOW);
 }
-else if (t=='w'){
-  digitalWrite(8,LOW);
-  digitalWrite(5,LOW);
-    digitalWrite(9,HIGH);
-  digitalWrite(3,HIGH);
-
-  digitalWrite(7,HIGH);
-  digitalWrite(4,HIGH);
+else if (t=='B'){
+  digitalWrite(enA,HIGH);
+  digitalWrite(enB,HIGH);
+  digitalWrite(in1,LOW);
+  digitalWrite(in3,LOW);
+  digitalWrite(in2,HIGH);
+  digitalWrite(in4,HIGH);
 
 }
-else if (t=='l'){
-  digitalWrite(8,LOW);
-  digitalWrite(7,LOW);
+else if (t=='L'){
+  digitalWrite(in3,HIGH);
+  digitalWrite(in4,LOW);
   /*enables*/
-  digitalWrite(9,HIGH);
-  digitalWrite(3,HIGH);
+  digitalWrite(enA,HIGH);
+  digitalWrite(enB,HIGH);
 
-    digitalWrite(5,LOW);
-  digitalWrite(4,HIGH);
+    digitalWrite(in1,LOW);
+  digitalWrite(in2,HIGH);
   
 }
-else if (t=='l'){
-  digitalWrite(8,LOW);
-  digitalWrite(7,LOW);
+else if (t=='R'){
+  digitalWrite(in1,HIGH);
+  digitalWrite(in2,LOW);
   /*enables*/
-  digitalWrite(9,HIGH);
-  digitalWrite(3,HIGH);
+  digitalWrite(enA,HIGH);
+  digitalWrite(enB,HIGH);
 
-    digitalWrite(5,LOW);
-  digitalWrite(4,LOW);
-  
+    digitalWrite(in3,LOW);
+  digitalWrite(in4,HIGH);
 }
-else if( t=='1'){
+else if( t=='W'){
     digitalWrite(13,HIGH);
 
 }
-else if( t=='2'){
+else if( t=='w'){
     digitalWrite(13,LOW);
 
 }
