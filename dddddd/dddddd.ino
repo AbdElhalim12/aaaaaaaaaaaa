@@ -1,10 +1,10 @@
 int incomingByte = 0;
 #define enA 9
-#define enB 3
+#define enB 4
 #define in1 8
 #define in2 7
-#define in3 5
-#define in4 4
+#define in3 6
+#define in4 5
 char t;
 void setup() {
 
